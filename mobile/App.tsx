@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar'
-import { Text, View } from 'react-native'
+import { ImageBackground, Text, View } from 'react-native'
 
 import {
   useFonts,
@@ -8,6 +8,8 @@ import {
 } from '@expo-google-fonts/roboto'
 
 import { BaiJamjuree_700Bold } from '@expo-google-fonts/bai-jamjuree'
+
+import blurBg from './src/assets/bg-blur.png'
 
 export default function App() {
   const [hasLoadedFonts] = useFonts({
@@ -21,9 +23,12 @@ export default function App() {
   }
 
   return (
-    <View className="flex-1 items-center justify-center bg-gray-900">
-      <Text className="font-alt text-5xl text-gray-50">Rocketseat</Text>
+    <ImageBackground
+      source={blurBg}
+      className="relative flex-1 items-center bg-gray-900"
+      imageStyle={{ position: 'absolute', left: '-100%' }}
+    >
       <StatusBar style="light" />
-    </View>
+    </ImageBackground>
   )
 }
